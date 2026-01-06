@@ -8,33 +8,76 @@
 </head>
 <body>
 
-<header class="topbar">
-  <div>
-    <h1>Markas Cetak Custom</h1>
-    <p>Souvenir Cetak • Profesional • Terpercaya</p>
-  </div>
-  <button class="login">Masuk</button>
+<header>
+  <h1>Markas Cetak Custom</h1>
+  <p>Souvenir Nikahan • Kantor • Custom</p>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <h2>Pesan Souvenir Custom dengan Mudah</h2>
-  <p>Proses manual • Aman • Konsultasi langsung via WhatsApp</p>
+<!-- DATA PEMESAN -->
+<section class="card">
+  <h2>1️⃣ Data Pemesan</h2>
+  <input id="nama" placeholder="Nama Lengkap" oninput="updateInvoice()">
+  <input id="wa" placeholder="No WhatsApp (62...)" oninput="updateInvoice()">
 </section>
 
-<!-- STEP 1 -->
+<!-- JENIS -->
 <section class="card">
-  <h3>1️⃣ Data Pemesan</h3>
-  <input type="text" id="nama" placeholder="Nama Lengkap">
-  <input type="text" id="wa" placeholder="Nomor WhatsApp (62...)">
+  <h2>2️⃣ Jenis Souvenir</h2>
+  <select id="jenis" onchange="updateInvoice()">
+    <option value="">-- Pilih --</option>
+    <option value="Nikahan">Nikahan</option>
+    <option value="Kantor">Kantor</option>
+    <option value="Custom">Custom</option>
+  </select>
 </section>
 
-<!-- STEP 2 -->
+<!-- JUMLAH -->
 <section class="card">
-  <h3>2️⃣ Pilih Jenis Souvenir</h3>
-  <select id="jenis">
-    <option value="">-- Pilih Jenis --</option>
-    <option value="Souvenir Nikahan">Souvenir Nikahan</option>
+  <h2>3️⃣ Jumlah</h2>
+  <input type="number" id="jumlah" placeholder="Jumlah Pesanan" oninput="updateInvoice()">
+</section>
+
+<!-- PEMBAYARAN -->
+<section class="card">
+  <h2>4️⃣ Metode Pembayaran</h2>
+  <select id="metode" onchange="updateInvoice(); pilihPembayaran()">
+    <option value="">-- Pilih Metode --</option>
+    <option value="VA">Virtual Account</option>
+    <option value="BANK">Transfer Bank</option>
+    <option value="DANA">DANA</option>
+    <option value="QRIS">QRIS</option>
+  </select>
+  <div id="detailPembayaran" class="pay-box"></div>
+</section>
+
+<!-- INVOICE -->
+<section class="card">
+  <h2>5️⃣ Ringkasan Pesanan</h2>
+  <div id="invoice" class="pay-box">
+    Isi data untuk melihat ringkasan.
+  </div>
+</section>
+
+<!-- UPLOAD -->
+<section class="card">
+  <h2>6️⃣ Bukti Pembayaran</h2>
+  <input type="file" accept="image/*">
+  <small>*Upload hanya tampilan, kirim bukti via WhatsApp</small>
+</section>
+
+<!-- SUBMIT -->
+<section class="card">
+  <button onclick="kirimWA()">KONFIRMASI VIA WHATSAPP</button>
+</section>
+
+<footer>
+  © 2026 Markas Cetak Custom<br>
+  Proses Manual • Aman • Terpercaya
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>    <option value="Souvenir Nikahan">Souvenir Nikahan</option>
     <option value="Souvenir Kantor">Souvenir Kantor</option>
     <option value="Souvenir Custom">Souvenir Custom</option>
   </select>
