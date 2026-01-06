@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Markas Cetak Custom</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Markas Cetak Custom | Souvenir Custom Profesional</title>
+<meta name="description" content="Markas Cetak Custom melayani souvenir nikahan, kantor, dan custom dengan desain profesional. Pesan mudah via WhatsApp.">
+<meta name="keywords" content="souvenir custom, souvenir nikahan, souvenir kantor, cetak souvenir">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+
+<!-- SEO Social -->
+<meta property="og:title" content="Markas Cetak Custom">
+<meta property="og:description" content="Souvenir Custom Profesional">
+<meta property="og:image" content="assets/hero.jpg">
 </head>
 <body>
 
@@ -13,89 +20,41 @@
   <p>Souvenir Nikahan • Kantor • Custom</p>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-text">
-    <h2>Souvenir Custom Profesional</h2>
-    <p>Pilih desain • Tentukan jumlah • Pesan via WhatsApp</p>
-    <button onclick="scrollKePilihan()">Mulai Pesanan</button>
-  </div>
+  <h2>Souvenir Custom Profesional</h2>
+  <p>Pilih desain • Tentukan jumlah • Pesan via WhatsApp</p>
+  <a href="#form" class="btn">Mulai Pesanan</a>
 </section>
 
-<!-- PILIH KATEGORI -->
-<section class="card" id="pilihan">
-  <h2>Pilih Kategori Souvenir</h2>
-  <div class="grid">
-    <div class="option-card" onclick="pilihKategori('Nikahan')">
-      <img src="assets/nikahan.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
-      <p>Nikahan</p>
-    </div>
-    <div class="option-card" onclick="pilihKategori('Kantor')">
-      <img src="assets/kantor.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
-      <p>Kantor</p>
-    </div>
-    <div class="option-card" onclick="pilihKategori('Custom')">
-      <img src="assets/custom.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
-      <p>Custom</p>
-    </div>
-  </div>
-</section>
+<section id="form" class="card">
+  <h2>Form Pemesanan</h2>
 
-<!-- PILIH DESAIN -->
-<section class="card">
-  <h2>Pilih Gaya Desain</h2>
-  <div class="grid">
-    <div class="option-card" onclick="pilihDesain('Minimalis')">
-      <img src="assets/minimalis.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
-      <p>Minimalis</p>
-    </div>
-    <div class="option-card" onclick="pilihDesain('Elegan')">
-      <img src="assets/elegan.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
-      <p>Elegan</p>
-    </div>
-    <div class="option-card" onclick="pilihDesain('Modern')">
-      <img src="assets/modern.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
-      <p>Modern</p>
-    </div>
-  </div>
+  <input id="nama" placeholder="Nama Lengkap">
+  <input id="wa" placeholder="No WhatsApp (62...)">
 
-  <button onclick="lanjutKeForm()">Lanjut ke Pemesanan</button>
-</section>
-
-<!-- FORM -->
-<section class="card">
-  <h2>Data Pemesan</h2>
-  <input id="nama" placeholder="Nama Lengkap" oninput="updateInvoice()">
-  <input id="wa" placeholder="No WhatsApp (62...)" oninput="updateInvoice()">
-</section>
-
-<section class="card">
-  <h2>Detail Pesanan</h2>
-  <select id="jenis" onchange="updateInvoice()">
-    <option value="">-- Jenis --</option>
+  <select id="kategori">
+    <option value="">-- Kategori --</option>
     <option value="Nikahan">Nikahan</option>
     <option value="Kantor">Kantor</option>
     <option value="Custom">Custom</option>
   </select>
 
-  <input type="number" id="jumlah" placeholder="Jumlah Pesanan" oninput="updateInvoice()">
-</section>
+  <select id="desain">
+    <option value="">-- Desain --</option>
+    <option value="Minimalis">Minimalis</option>
+    <option value="Elegan">Elegan</option>
+    <option value="Modern">Modern</option>
+  </select>
 
-<section class="card">
-  <h2>Ringkasan Pesanan</h2>
-  <div id="invoice" class="box">
-    Lengkapi data untuk melihat ringkasan.
-  </div>
-</section>
+  <input type="number" id="jumlah" placeholder="Jumlah">
 
-<section class="card">
-  <button id="btnWA" onclick="kirimWA()" disabled>
-    KONFIRMASI VIA WHATSAPP
-  </button>
+  <div id="invoice" class="box">Lengkapi data untuk melihat ringkasan</div>
+
+  <button id="btnWA" onclick="kirimWA()" disabled>Pesan via WhatsApp</button>
 </section>
 
 <footer>
-  © 2026 Markas Cetak Custom • Aman & Terpercaya
+© 2026 Markas Cetak Custom
 </footer>
 
 <script src="script.js"></script>
