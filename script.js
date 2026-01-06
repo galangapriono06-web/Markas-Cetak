@@ -79,7 +79,7 @@ Status : Menunggu Konfirmasi
 
   let admin = "628XXXXXXXXXX"; // GANTI NOMOR ADMIN
   window.open(
-    `https://wa.me/${admin}?text=${encodeURIComponent(pesan)}`,
+    `https://wa.me/${6281215693502}?text=${encodeURIComponent(pesan)}`,
     "_blank"
   );
 }
