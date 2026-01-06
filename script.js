@@ -7,21 +7,27 @@ const harga = {
 
 // UPDATE INVOICE
 function updateInvoice() {
-  let nama = document.getElementById("nama").value;
-  let wa = document.getElementById("wa").value;
-  let jenis = document.getElementById("jenis").value;
-  let jumlah = document.getElementById("jumlah").value;
-  let metode = document.getElementById("metode").value;
+  let nama = document.getElementById("nama")?.value || "";
+  let wa = document.getElementById("wa")?.value || "";
+  let jenis = document.getElementById("jenis")?.value || "";
+  let jumlah = document.getElementById("jumlah")?.value || "";
+  let metode = document.getElementById("metode")?.value || "";
 
-  let total = (jenis && jumlah) ? harga[jenis] * jumlah : 0;
+  let total = 0;
+  if (jenis && jumlah && harga[jenis]) {
+    total = harga[jenis] * jumlah;
+  }
 
-  document.getElementById("invoice").innerHTML = `
+  let invoiceBox = document.getElementById("invoice");
+  if (!invoiceBox) return;
+
+  invoiceBox.innerHTML = `
     <b>Nama:</b> ${nama || "-"}<br>
     <b>No WA:</b> ${wa || "-"}<br>
-    <b>Jenis:</b> ${jenis || "-"}<br>
+    <b>Jenis Souvenir:</b> ${jenis || "-"}<br>
     <b>Jumlah:</b> ${jumlah || "-"}<br>
     <b>Total Estimasi:</b> Rp ${total.toLocaleString()}<br>
-    <b>Pembayaran:</b> ${metode || "-"}<br>
+    <b>Metode Pembayaran:</b> ${metode || "-"}<br>
     <b>Status:</b> <span style="color:#facc15">Menunggu Konfirmasi</span>
   `;
 }
