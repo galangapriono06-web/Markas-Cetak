@@ -7,7 +7,7 @@ body {
 
 header {
   background: #020617;
-  padding: 20px;
+  padding: 25px;
   text-align: center;
 }
 
@@ -20,10 +20,10 @@ header {
   box-shadow: 0 6px 20px rgba(0,0,0,0.5);
 }
 
-input, select, textarea {
+input, select {
   width: 100%;
   padding: 12px;
-  margin-bottom: 12px;
+  margin-top: 10px;
   border-radius: 8px;
   border: 1px solid #374151;
   background: #020617;
@@ -32,11 +32,30 @@ input, select, textarea {
 
 button {
   width: 100%;
-  padding: 14px;
+  padding: 15px;
   background: #25D366;
   border: none;
   border-radius: 12px;
   color: white;
   font-size: 16px;
   font-weight: bold;
+  cursor: pointer;
 }
+
+.pay {
+  display: block;
+  text-align: center;
+  background: #2563eb;
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  color: #9ca3af;
+  padding: 20px;
+  font-size: 13px;
+  }
