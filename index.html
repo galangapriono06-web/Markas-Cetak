@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <title>Markas Cetak Custom</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Markas Cetak Custom | Souvenir Profesional</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,33 +13,51 @@
   <p>Souvenir Nikahan • Kantor • Custom</p>
 </header>
 
-<!-- DATA PEMESAN -->
+<!-- LANDING PILIHAN -->
 <section class="card">
-  <h2>1️⃣ Data Pemesan</h2>
-  <input id="nama" placeholder="Nama Lengkap" oninput="updateInvoice()">
-  <input id="wa" placeholder="No WhatsApp (62...)" oninput="updateInvoice()">
-</section>
+  <h2>Mulai Pesanan</h2>
 
-<!-- JENIS -->
-<section class="card">
-  <h2>2️⃣ Jenis Souvenir</h2>
-  <select id="jenis" onchange="updateInvoice()">
+  <label>Kategori Souvenir</label>
+  <select id="kategoriAwal">
     <option value="">-- Pilih --</option>
     <option value="Nikahan">Nikahan</option>
     <option value="Kantor">Kantor</option>
     <option value="Custom">Custom</option>
   </select>
+
+  <label>Gaya Desain</label>
+  <select id="desainAwal">
+    <option value="">-- Pilih --</option>
+    <option value="Minimalis">Minimalis</option>
+    <option value="Elegan">Elegan</option>
+    <option value="Modern">Modern</option>
+    <option value="Full Custom">Full Custom</option>
+  </select>
+
+  <button onclick="mulaiPesanan()">LANJUT PESAN</button>
 </section>
 
-<!-- JUMLAH -->
+<!-- FORM ORDER -->
 <section class="card">
-  <h2>3️⃣ Jumlah</h2>
+  <h2>Data Pemesan</h2>
+  <input id="nama" placeholder="Nama Lengkap" oninput="updateInvoice()">
+  <input id="wa" placeholder="No WhatsApp (62...)" oninput="updateInvoice()">
+</section>
+
+<section class="card">
+  <h2>Detail Pesanan</h2>
+  <select id="jenis" onchange="updateInvoice()">
+    <option value="">-- Pilih Jenis --</option>
+    <option value="Nikahan">Nikahan</option>
+    <option value="Kantor">Kantor</option>
+    <option value="Custom">Custom</option>
+  </select>
+
   <input type="number" id="jumlah" placeholder="Jumlah Pesanan" oninput="updateInvoice()">
 </section>
 
-<!-- PEMBAYARAN -->
 <section class="card">
-  <h2>4️⃣ Metode Pembayaran</h2>
+  <h2>Metode Pembayaran</h2>
   <select id="metode" onchange="updateInvoice(); pilihPembayaran()">
     <option value="">-- Pilih Metode --</option>
     <option value="VA">Virtual Account</option>
@@ -47,27 +65,21 @@
     <option value="DANA">DANA</option>
     <option value="QRIS">QRIS</option>
   </select>
-  <div id="detailPembayaran" class="pay-box"></div>
+
+  <div id="detailPembayaran" class="box"></div>
 </section>
 
-<!-- INVOICE -->
 <section class="card">
-  <h2>5️⃣ Ringkasan Pesanan</h2>
-  <div id="invoice" class="pay-box">
-    Isi data untuk melihat ringkasan.
+  <h2>Ringkasan Pesanan</h2>
+  <div id="invoice" class="box">
+    Silakan isi data untuk melihat ringkasan.
   </div>
 </section>
 
-<!-- UPLOAD -->
 <section class="card">
-  <h2>6️⃣ Bukti Pembayaran</h2>
-  <input type="file" accept="image/*">
-  <small>*Upload hanya tampilan, kirim bukti via WhatsApp</small>
-</section>
-
-<!-- SUBMIT -->
-<section class="card">
-  <button onclick="kirimWA()">KONFIRMASI VIA WHATSAPP</button>
+  <button id="btnWA" onclick="kirimWA()" disabled>
+    KONFIRMASI VIA WHATSAPP
+  </button>
 </section>
 
 <footer>
@@ -77,4 +89,4 @@
 
 <script src="script.js"></script>
 </body>
-</html> 
+</html>
