@@ -13,31 +13,56 @@
   <p>Souvenir Nikahan • Kantor • Custom</p>
 </header>
 
-<!-- LANDING PILIHAN -->
-<section class="card">
-  <h2>Mulai Pesanan</h2>
-
-  <label>Kategori Souvenir</label>
-  <select id="kategoriAwal">
-    <option value="">-- Pilih --</option>
-    <option value="Nikahan">Nikahan</option>
-    <option value="Kantor">Kantor</option>
-    <option value="Custom">Custom</option>
-  </select>
-
-  <label>Gaya Desain</label>
-  <select id="desainAwal">
-    <option value="">-- Pilih --</option>
-    <option value="Minimalis">Minimalis</option>
-    <option value="Elegan">Elegan</option>
-    <option value="Modern">Modern</option>
-    <option value="Full Custom">Full Custom</option>
-  </select>
-
-  <button onclick="mulaiPesanan()">LANJUT PESAN</button>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h2>Souvenir Custom Profesional</h2>
+    <p>Pilih desain • Tentukan jumlah • Pesan via WhatsApp</p>
+    <button onclick="scrollKePilihan()">Mulai Pesanan</button>
+  </div>
 </section>
 
-<!-- FORM ORDER -->
+<!-- PILIH KATEGORI -->
+<section class="card" id="pilihan">
+  <h2>Pilih Kategori Souvenir</h2>
+  <div class="grid">
+    <div class="option-card" onclick="pilihKategori('Nikahan')">
+      <img src="assets/nikahan.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
+      <p>Nikahan</p>
+    </div>
+    <div class="option-card" onclick="pilihKategori('Kantor')">
+      <img src="assets/kantor.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
+      <p>Kantor</p>
+    </div>
+    <div class="option-card" onclick="pilihKategori('Custom')">
+      <img src="assets/custom.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
+      <p>Custom</p>
+    </div>
+  </div>
+</section>
+
+<!-- PILIH DESAIN -->
+<section class="card">
+  <h2>Pilih Gaya Desain</h2>
+  <div class="grid">
+    <div class="option-card" onclick="pilihDesain('Minimalis')">
+      <img src="assets/minimalis.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
+      <p>Minimalis</p>
+    </div>
+    <div class="option-card" onclick="pilihDesain('Elegan')">
+      <img src="assets/elegan.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
+      <p>Elegan</p>
+    </div>
+    <div class="option-card" onclick="pilihDesain('Modern')">
+      <img src="assets/modern.jpg" onerror="this.src='https://via.placeholder.com/300x200'">
+      <p>Modern</p>
+    </div>
+  </div>
+
+  <button onclick="lanjutKeForm()">Lanjut ke Pemesanan</button>
+</section>
+
+<!-- FORM -->
 <section class="card">
   <h2>Data Pemesan</h2>
   <input id="nama" placeholder="Nama Lengkap" oninput="updateInvoice()">
@@ -47,7 +72,7 @@
 <section class="card">
   <h2>Detail Pesanan</h2>
   <select id="jenis" onchange="updateInvoice()">
-    <option value="">-- Pilih Jenis --</option>
+    <option value="">-- Jenis --</option>
     <option value="Nikahan">Nikahan</option>
     <option value="Kantor">Kantor</option>
     <option value="Custom">Custom</option>
@@ -57,22 +82,9 @@
 </section>
 
 <section class="card">
-  <h2>Metode Pembayaran</h2>
-  <select id="metode" onchange="updateInvoice(); pilihPembayaran()">
-    <option value="">-- Pilih Metode --</option>
-    <option value="VA">Virtual Account</option>
-    <option value="BANK">Transfer Bank</option>
-    <option value="DANA">DANA</option>
-    <option value="QRIS">QRIS</option>
-  </select>
-
-  <div id="detailPembayaran" class="box"></div>
-</section>
-
-<section class="card">
   <h2>Ringkasan Pesanan</h2>
   <div id="invoice" class="box">
-    Silakan isi data untuk melihat ringkasan.
+    Lengkapi data untuk melihat ringkasan.
   </div>
 </section>
 
@@ -83,8 +95,7 @@
 </section>
 
 <footer>
-  © 2026 Markas Cetak Custom<br>
-  Proses Manual • Aman • Terpercaya
+  © 2026 Markas Cetak Custom • Aman & Terpercaya
 </footer>
 
 <script src="script.js"></script>
