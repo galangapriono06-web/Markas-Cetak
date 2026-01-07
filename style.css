@@ -1,64 +1,15 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #0f172a;
-  color: #e5e7eb;
-}
-
-header {
-  background: #020617;
-  padding: 25px;
-  text-align: center;
-}
-
-header p {
-  color: #9ca3af;
-  margin-top: 5px;
-}
-
-.card {
-  background: #111827;
-  max-width: 520px;
-  margin: 18px auto;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.5);
-}
-
-input, select {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 8px;
-  border: 1px solid #374151;
-  background: #020617;
-  color: #e5e7eb;
-}
-
-button {
-  width: 100%;
-  padding: 16px;
-  background: #25D366;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.pay-box {
-  margin-top: 12px;
-  padding: 12px;
-  border-radius: 8px;
-  background: #020617;
-  border: 1px solid #374151;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-footer {
-  text-align: center;
-  color: #9ca3af;
-  padding: 25px;
-  font-size: 13px;
-}
+body{margin:0;font-family:Arial;background:#0f172a;color:#e5e7eb}
+header{text-align:center;padding:25px;background:#020617}
+.hero{text-align:center;padding:70px 20px;
+background:linear-gradient(rgba(2,6,23,.7),rgba(2,6,23,.7)),url('assets/hero.jpg');
+background-size:cover}
+.card{max-width:520px;margin:20px auto;background:#111827;padding:20px;border-radius:14px}
+input,select{width:100%;padding:12px;margin-top:10px;border-radius:8px;background:#020617;color:white;border:1px solid #374151}
+.btn,button{display:block;text-align:center;padding:14px;margin-top:15px;background:#25D366;color:black;font-weight:bold;border-radius:12px;text-decoration:none;border:none}
+button:disabled{background:#374151}
+.option-card{display:block;text-decoration:none;color:white;margin-top:10px;border:1px solid #374151;border-radius:12px;overflow:hidden}
+.option-card img{width:100%;height:140px;object-fit:cover}
+.option-card p{text-align:center;padding:10px}
+.full-img{width:100%;border-radius:12px}
+.box{margin-top:10px;padding:12px;background:#020617;border-radius:8px}
+footer{text-align:center;color:#9ca3af;padding:20px}
