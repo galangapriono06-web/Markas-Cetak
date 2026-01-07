@@ -59,7 +59,7 @@ Jumlah: ${jumlah.value}
 Mohon konfirmasi.`;
 
     window.open(
-      "https://wa.me/628XXXXXXXXXX?text=" + encodeURIComponent(pesan),
+      "https://wa.me/6281215693502?text=" + encodeURIComponent(pesan),
       "_blank"
     );
   };
