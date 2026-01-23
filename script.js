@@ -21,19 +21,9 @@ function render(list){
         <p>${p.kategori}</p>
       </div>
     `;
-    div.onclick=()=>alert("Klik: "+p.nama);
+    div.onclick = () => {
+      window.location = "detail.html?produk=" + encodeURIComponent(p.nama);
+    };
     grid.appendChild(div);
   });
 }
-
-render(produk);
-
-document.querySelectorAll(".tab").forEach(tab=>{
-  tab.onclick=()=>{
-    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-    tab.classList.add("active");
-    const cat=tab.innerText;
-    if(cat=="Populer") render(produk);
-    else render(produk.filter(p=>p.kategori==cat));
-  };
-});});
