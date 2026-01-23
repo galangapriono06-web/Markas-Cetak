@@ -1,36 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<title>Detail Produk</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Pilih Desain | Markas Cetak Custom</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#e6f6f6;
+}
+
+header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  background:#25b9b9;
+  color:white;
+}
+
+header span{
+  cursor:pointer;
+  font-size:20px;
+}
+
+.card{
+  background:white;
+  margin:15px;
+  padding:15px;
+  border-radius:15px;
+}
+
+.card img.main{
+  width:100%;
+  border-radius:12px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:10px;
+}
+
+.desain{
+  border-radius:12px;
+  overflow:hidden;
+  border:3px solid transparent;
+  cursor:pointer;
+}
+
+.desain img{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+}
+
+.desain p{
+  margin:0;
+  padding:8px;
+  text-align:center;
+  font-weight:bold;
+}
+
+.desain.active{
+  border:3px solid #25b9b9;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  background:#25b9b9;
+  color:white;
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
-<header class="topbar">
+<header>
   <span onclick="history.back()">←</span>
-  <b id="judul"></b>
+  <b id="judul">Produk</b>
 </header>
 
 <section class="card">
-  <img id="gambar" style="width:100%;border-radius:15px">
+  <img id="gambarProduk" class="main">
 </section>
 
 <section class="card">
   <h3>Pilih Gaya Desain</h3>
 
-  <div class="tabs">
-    <span class="tab" onclick="pilih('Minimalis')">Minimalis</span>
-    <span class="tab" onclick="pilih('Elegan')">Elegan</span>
-    <span class="tab" onclick="pilih('Modern')">Modern</span>
+  <div class="grid">
+    <div class="desain" onclick="pilihDesain('Minimalis', this)">
+      <img src="assets/minimalis.jpg">
+      <p>Minimalis</p>
+    </div>
+
+    <div class="desain" onclick="pilihDesain('Elegan', this)">
+      <img src="assets/elegan.jpg">
+      <p>Elegan</p>
+    </div>
+
+    <div class="desain" onclick="pilihDesain('Modern', this)">
+      <img src="assets/modern.jpg">
+      <p>Modern</p>
+    </div>
   </div>
 </section>
 
 <section class="card">
-  <button onclick="checkout()">Lanjut ke Pemesanan</button>
+  <button onclick="lanjut()">Lanjut ke Pemesanan</button>
 </section>
 
 <script>
+/* DATA PRODUK */
 const produkData = {
   "Souvenir Nikahan":"assets/nikahan.jpg",
   "Souvenir Kantor":"assets/kantor.jpg",
@@ -40,25 +130,35 @@ const produkData = {
   "Gantungan":"assets/gantungan.jpg"
 };
 
-let params = new URLSearchParams(window.location.search);
-let produk = params.get("produk");
-let desain = "";
+/* AMBIL PARAMETER URL */
+const params = new URLSearchParams(window.location.search);
+const produk = params.get("produk");
 
-document.getElementById("judul").innerText = produk;
-document.getElementById("gambar").src = produkData[produk];
+let desainTerpilih = "";
 
-function pilih(d){
-  desain = d;
-  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-  event.target.classList.add("active");
+/* SET JUDUL & GAMBAR */
+document.getElementById("judul").innerText = produk || "Produk";
+document.getElementById("gambarProduk").src =
+  produkData[produk] || "assets/nikahan.jpg";
+
+/* PILIH DESAIN */
+function pilihDesain(nama, el){
+  desainTerpilih = nama;
+  document.querySelectorAll(".desain").forEach(d=>{
+    d.classList.remove("active");
+  });
+  el.classList.add("active");
 }
 
-function checkout(){
-  if(!desain){
-    alert("Pilih desain dulu");
+/* LANJUT KE CHECKOUT */
+function lanjut(){
+  if(!desainTerpilih){
+    alert("Silakan pilih desain terlebih dahulu");
     return;
   }
-  window.location = "index.html?produk="+encodeURIComponent(produk)+"&desain="+desain;
+  window.location =
+    "index.html?produk="+encodeURIComponent(produk)+
+    "&desain="+encodeURIComponent(desainTerpilih);
 }
 </script>
 
