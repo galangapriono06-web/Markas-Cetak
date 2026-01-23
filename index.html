@@ -2,74 +2,30 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Markas Cetak Custom | Souvenir Custom Profesional</title>
-<meta name="description" content="Markas Cetak Custom melayani souvenir nikahan, kantor, dan custom dengan desain profesional. Pesan mudah via WhatsApp.">
-<meta name="keywords" content="souvenir custom, souvenir nikahan, souvenir kantor, cetak souvenir">
+<title>Markas Cetak Custom</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
-
-<!-- SEO Social -->
-<meta property="og:title" content="Markas Cetak Custom">
-<meta property="og:description" content="Souvenir Custom Profesional">
-<meta property="og:image" content="assets/hero.jpg">
 </head>
 <body>
 
-<header>
-  <h1>Markas Cetak Custom</h1>
-  <p>Souvenir Nikahan • Kantor • Custom</p>
+<header class="topbar">
+  <span class="menu">☰</span>
+  <b>Markas Cetak Custom</b>
+  <button class="login">MASUK</button>
 </header>
 
-<section class="hero">
-  <h2>Souvenir Custom Profesional</h2>
-  <p>Pilih desain • Tentukan jumlah • Pesan via WhatsApp</p>
-  <a href="#form" class="btn">Mulai Pesanan</a>
+<section class="banner">
+  <img src="assets/banner.jpg">
 </section>
 
-<!-- FORM -->
-<section class="card" id="form">
-  <h2>Form Pemesanan</h2>
+<section class="tabs">
+  <span class="tab active">Populer</span>
+  <span class="tab">Nikahan</span>
+  <span class="tab">Kantor</span>
+  <span class="tab">Custom</span>
+</section>
 
-  <input id="nama" placeholder="Nama Lengkap">
-  <input id="wa" placeholder="No WhatsApp">
-
-  <select id="kategori">
-    <option value="">-- Kategori --</option>
-    <option value="Nikahan">Nikahan</option>
-    <option value="Kantor">Kantor</option>
-    <option value="Custom">Custom</option>
-  </select>
-
-  <select id="desain">
-    <option value="">-- Desain --</option>
-    <option value="Minimalis">Minimalis</option>
-    <option value="Elegan">Elegan</option>
-    <option value="Modern">Modern</option>
-  </select>
-
-  <input type="number" id="jumlah" placeholder="Jumlah">
-
-  <div class="card">
-  <h2>Preview Desain</h2>
-  <img id="previewDesain" src="assets/minimalis.jpg" style="width:100%;border-radius:12px">
-</div>
-
-  <div id="invoice" class="box">Menunggu data...</div>
-
-  <select id="metode">
-  <option value="">-- Metode Pembayaran --</option>
-  <option value="VA">Virtual Account</option>
-  <option value="BANK">Transfer Bank</option>
-  <option value="DANA">DANA</option>
-  <option value="QRIS">QRIS</option>
-</select>
-
-  <button id="btnWA" disabled>
-  Kirim Pesanan ke WhatsApp
-  </button>
-  
-© 2026 Markas Cetak Custom
-</footer>
+<section class="grid" id="grid"></section>
 
 <script src="script.js"></script>
 </body>
