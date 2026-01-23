@@ -1,3 +1,4 @@
+alert("SCRIPT AKTIF");
 document.addEventListener("DOMContentLoaded", function () {
 
   const nama = document.getElementById("nama");
