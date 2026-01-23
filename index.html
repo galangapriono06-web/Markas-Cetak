@@ -1,31 +1,30 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>Markas Cetak Custom</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="topbar">
-  <span class="menu">☰</span>
+  <span onclick="openMenu()">☰</span>
   <b>Markas Cetak Custom</b>
-  <button class="login">MASUK</button>
+  <button onclick="window.location='login.html'">MASUK</button>
 </header>
 
-<section class="banner">
-  <img src="assets/banner.jpg">
-</section>
+<div class="grid">
+  <div class="card">Souvenir Nikahan</div>
+  <div class="card">Souvenir Kantor</div>
+  <div class="card">Souvenir Custom</div>
+</div>
 
-<section class="tabs">
-  <span class="tab active">Populer</span>
-  <span class="tab">Nikahan</span>
-  <span class="tab">Kantor</span>
-  <span class="tab">Custom</span>
-</section>
-
-<section class="grid" id="grid"></section>
+<div id="overlay" onclick="closeMenu()"></div>
+<div id="sidebar">
+  <a href="index.html">Beranda</a>
+  <a href="akun.html">Lacak Pesanan</a>
+  <a href="login.html">Login</a>
+</div>
 
 <script src="script.js"></script>
 </body>
