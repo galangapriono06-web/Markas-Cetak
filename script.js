@@ -1,49 +1,56 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  const nama = document.getElementById("nama");
-  const wa = document.getElementById("wa");
-  const kategori = document.getElementById("kategori");
-  const desain = document.getElementById("desain");
-  const jumlah = document.getElementById("jumlah");
-  const btnWA = document.getElementById("btnWA");
-  const invoice = document.getElementById("invoice");
-
   const harga = {
     Nikahan: 5000,
     Kantor: 8000,
     Custom: 10000
   };
 
-  function updateInvoice() {
-    const n = nama.value.trim();
-    const w = wa.value.trim();
-    const k = kategori.value;
-    const d = desain.value;
-    const j = jumlah.value;
+  const nama = document.getElementById("nama");
+  const wa = document.getElementById("wa");
+  const kategori = document.getElementById("kategori");
+  const desain = document.getElementById("desain");
+  const jumlah = document.getElementById("jumlah");
+  const metode = document.getElementById("metode");
+  const btnWA = document.getElementById("btnWA");
+  const invoice = document.getElementById("invoice");
+  const preview = document.getElementById("previewDesain");
 
-    const total = (k && j) ? harga[k] * j : 0;
-
-    invoice.innerHTML = `
-      <b>Nama:</b> ${n || "-"}<br>
-      <b>WA:</b> ${w || "-"}<br>
-      <b>Kategori:</b> ${k || "-"}<br>
-      <b>Desain:</b> ${d || "-"}<br>
-      <b>Jumlah:</b> ${j || "-"}<br>
-      <b>Total Estimasi:</b> Rp ${total.toLocaleString()}
-    `;
-
-    // Tombol aktif hanya jika data lengkap
-    btnWA.disabled = !(n && w && k && d && j);
+  function updatePreview() {
+    if (desain.value === "Minimalis") preview.src = "assets/minimalis.jpg";
+    if (desain.value === "Elegan") preview.src = "assets/elegan.jpg";
+    if (desain.value === "Modern") preview.src = "assets/modern.jpg";
   }
 
-  // Event listener semua input
-  [nama, wa, kategori, desain, jumlah].forEach(el => {
+  function updateInvoice() {
+    const total = (kategori.value && jumlah.value)
+      ? harga[kategori.value] * jumlah.value
+      : 0;
+
+    invoice.innerHTML = `
+      <b>Nama:</b> ${nama.value || "-"}<br>
+      <b>WA:</b> ${wa.value || "-"}<br>
+      <b>Kategori:</b> ${kategori.value || "-"}<br>
+      <b>Desain:</b> ${desain.value || "-"}<br>
+      <b>Jumlah:</b> ${jumlah.value || "-"}<br>
+      <b>Total:</b> Rp ${total.toLocaleString()}<br>
+      <b>Pembayaran:</b> ${metode.value || "-"}
+    `;
+
+    btnWA.disabled = !(nama.value && wa.value && kategori.value && desain.value && jumlah.value && metode.value);
+  }
+
+  [nama, wa, kategori, desain, jumlah, metode].forEach(el => {
     el.addEventListener("input", updateInvoice);
-    el.addEventListener("change", updateInvoice);
+    el.addEventListener("change", () => {
+      updatePreview();
+      updateInvoice();
+    });
   });
 
-  // Klik tombol WA
   btnWA.addEventListener("click", function () {
+    const total = harga[kategori.value] * jumlah.value;
+
     const pesan = `ORDER MARKAS CETAK CUSTOM
 
 Nama: ${nama.value}
@@ -51,8 +58,10 @@ WA: ${wa.value}
 Kategori: ${kategori.value}
 Desain: ${desain.value}
 Jumlah: ${jumlah.value}
+Total: Rp ${total.toLocaleString()}
+Pembayaran: ${metode.value}
 
-Mohon konfirmasi & info pembayaran.`;
+Mohon info pembayaran.`;
 
     window.open(
       "https://wa.me/6285175272990?text=" + encodeURIComponent(pesan),
@@ -60,6 +69,4 @@ Mohon konfirmasi & info pembayaran.`;
     );
   });
 
-  // Jalankan pertama kali
-  updateInvoice();
 });
