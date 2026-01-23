@@ -1,26 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Souvenir Nikahan | Markas Cetak Custom</title>
+<title>Detail Produk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-<h1>Souvenir Nikahan</h1>
-<p>Elegan & Berkesan</p>
+<header class="topbar">
+  <span onclick="history.back()">←</span>
+  <b id="judul"></b>
 </header>
 
 <section class="card">
-<img src="assets/nikahan.jpg" class="full-img">
-<ul>
-<li>Gelas Custom</li>
-<li>Kipas Nikahan</li>
-<li>Gantungan Kunci</li>
-</ul>
-
-<a href="desain.html?kategori=Nikahan" class="btn">Pilih Desain</a>
+  <img id="gambar" style="width:100%;border-radius:15px">
 </section>
+
+<section class="card">
+  <h3>Pilih Gaya Desain</h3>
+
+  <div class="tabs">
+    <span class="tab" onclick="pilih('Minimalis')">Minimalis</span>
+    <span class="tab" onclick="pilih('Elegan')">Elegan</span>
+    <span class="tab" onclick="pilih('Modern')">Modern</span>
+  </div>
+</section>
+
+<section class="card">
+  <button onclick="checkout()">Lanjut ke Pemesanan</button>
+</section>
+
+<script>
+const produkData = {
+  "Souvenir Nikahan":"assets/nikahan.jpg",
+  "Souvenir Kantor":"assets/kantor.jpg",
+  "Souvenir Custom":"assets/custom.jpg",
+  "Mug Custom":"assets/mug.jpg",
+  "Tumbler":"assets/tumbler.jpg",
+  "Gantungan":"assets/gantungan.jpg"
+};
+
+let params = new URLSearchParams(window.location.search);
+let produk = params.get("produk");
+let desain = "";
+
+document.getElementById("judul").innerText = produk;
+document.getElementById("gambar").src = produkData[produk];
+
+function pilih(d){
+  desain = d;
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  event.target.classList.add("active");
+}
+
+function checkout(){
+  if(!desain){
+    alert("Pilih desain dulu");
+    return;
+  }
+  window.location = "index.html?produk="+encodeURIComponent(produk)+"&desain="+desain;
+}
+</script>
 
 </body>
 </html>
